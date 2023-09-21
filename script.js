@@ -31,8 +31,7 @@ function createHTML() {
             };
 
             dataJson.table.push(newObject);
-            console.log(dataJson);
-            createScoreCard(newObject);
+            createScoreCard(newObject, dataJson.table.length);
 
         }
         if (dataJson.table.length == 5) {
@@ -70,38 +69,34 @@ function createHTML() {
 }
 createHTML();
 
-function createScoreCard(jsonScoreElement) {
+function createScoreCard(jsonScoreElement, position) {
     const cardContainer = document.getElementById('cardContainer');
 
-
     const card = document.createElement('div');
-    card.setAttribute('class', 'card');
+    card.setAttribute('class', 'card tooltip-card');
+    card.tooltip = card.tooltip.replace(/content/, asdasdfasdf);
     card.id = jsonScoreElement.id;
 
     const plusButton = document.createElement('button');
     plusButton.setAttribute('class', 'plus-button');
-    plusButton.id = 'plusButton' + jsonScoreElement.id;;
+    plusButton.id = 'plusButton' + jsonScoreElement.id;
     plusButton.textContent = "+";
     let scoreValue = jsonScoreElement.score;
+    let operation = position * 10;
     plusButton.addEventListener("click", () => {
-        // for (let i = 0; i < dataJson.table.length; i++) {
-        //   let operation = 9;
-        //  while (scoreValue <= operation) {
-        scoreValue++;
-        const increase = document.getElementById("score" + jsonScoreElement.id);
-        increase.textContent = scoreValue;
-        jsonScoreElement.score = scoreValue;
+        if (scoreValue < operation) {
 
-        //}
-        //}
+            scoreValue++;
+            const increase = document.getElementById("score" + jsonScoreElement.id);
+            increase.textContent = scoreValue;
+            jsonScoreElement.score = scoreValue;
+        }
     });
-
-
 
     const score = document.createElement('p');
     score.setAttribute('class', 'score');
-    score.id = 'score' + jsonScoreElement.id;;
-    score.textContent = jsonScoreElement.score;;
+    score.id = 'score' + jsonScoreElement.id;
+    score.textContent = jsonScoreElement.score;
 
     const minusButton = document.createElement('button');
     minusButton.setAttribute('class', 'minus-button');
@@ -114,14 +109,12 @@ function createScoreCard(jsonScoreElement) {
             decrease.textContent = scoreValue;
             jsonScoreElement.score = scoreValue;
         }
-        console.log(dataJson.table);
     });
 
     cardContainer.appendChild(card);
     card.appendChild(plusButton);
     card.appendChild(score);
     card.appendChild(minusButton);
-
 }
 
 function showCard() {
@@ -130,9 +123,10 @@ function showCard() {
         .then(data => {
 
             dataJson = data;
-
+            let contador = 1;
             data.table.forEach(element => {
-                createScoreCard(element);
+                createScoreCard(element, contador);
+                contador++;
             });
 
         });

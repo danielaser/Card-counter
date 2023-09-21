@@ -36,11 +36,22 @@ body {
     justify-content: space-between;
     width: 100px;
     height: 200px;
-    background-color: #dedee4;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 22%, rgba(48, 46, 59, 1) 70%, rgba(96, 96, 97, 1) 98%);
     border-radius: 20px;
     margin: 2em;
 
 }
+
+.tooltip-card:hover:before {
+    content: 'hello';
+    position: absolute;
+    padding: 5px 10px;
+    margin: -5em 0 0 25px;
+    background: orange;
+    color: white;
+    border-radius: 5px;
+}
+
 
 .button-container {
     width: 100%;
@@ -54,7 +65,7 @@ body {
 .score {
     font-size: 25px;
     text-align: center;
-    color: black;
+    color: #dedee4;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
@@ -65,17 +76,18 @@ body {
     margin: 2em;
     width: 200px;
     height: 50px;
-    border: 1px solid transparent;
+    border: transparent;
     border-radius: 15px;
-    font-size: 15px;
+    font-size: 17px;
+    font-weight: bold;
 }
 
 .add-button:enabled {
-    background: #00bdaa;
+    background: linear-gradient(90deg, rgba(26, 46, 39, 1) 0%, rgba(55, 231, 149, 1) 75%, rgba(138, 255, 224, 1) 100%);
 }
 
 .delete-button:enabled {
-    background: #fe346e;
+    background: linear-gradient(90deg, rgba(50, 26, 22, 1) 0%, rgba(231, 55, 79, 1) 74%, rgba(251, 110, 163, 1) 100%);
 }
 
 .add-button:hover {
@@ -99,7 +111,8 @@ body {
     font-size: 25px;
     text-align: center;
     color: black;
-    background: #aa46db;
+    background: linear-gradient(90deg, rgba(52, 47, 61, 1) 9%, rgba(135, 114, 230, 1) 46%, rgba(222, 220, 241, 1) 93%);
+    /* background: #aa46db; */
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     border: transparent;
     height: 50px;
