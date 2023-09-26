@@ -74,8 +74,10 @@ function createScoreCard(jsonScoreElement, position) {
 
     const card = document.createElement('div');
     card.setAttribute('class', 'card tooltip-card');
-    card.tooltip = card.tooltip.replace(/content/, asdasdfasdf);
     card.id = jsonScoreElement.id;
+
+    //const tooltipCard = document.createElement('div');
+    //tooltipCard.setAttribute('class', 'tooltip-card');
 
     const plusButton = document.createElement('button');
     plusButton.setAttribute('class', 'plus-button');
@@ -112,6 +114,7 @@ function createScoreCard(jsonScoreElement, position) {
     });
 
     cardContainer.appendChild(card);
+    //card.appendChild(tooltipCard);
     card.appendChild(plusButton);
     card.appendChild(score);
     card.appendChild(minusButton);
