@@ -29,8 +29,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Exercise URL: [Exersice](https://github.com/danielaser/card-counter)
+- Live Site URL: [Card counter](https://your-live-site-url.com)
 
 ## My process
 
@@ -44,7 +44,7 @@ Users should be able to:
 
 ### What I learned
 
-This excersice helps to understand the JSON file flow throw the application
+This exersice helps to understand the JSON file flow throw the application
 
 To see how you can add code snippets, see below:
 
