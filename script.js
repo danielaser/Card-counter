@@ -51,7 +51,6 @@ function createHTML() {
             let elementToDelete = document.getElementById(dataJson.table[dataJson.table.length - 1].id);
             elementToDelete.remove();
             dataJson.table.pop(dataJson.table);
-            console.log(dataJson);
         }
         if (dataJson.table.length == 1) {
             deleteButton.setAttribute("disabled", true);
@@ -76,9 +75,6 @@ function createScoreCard(jsonScoreElement, position) {
     card.setAttribute('class', 'card tooltip-card');
     card.id = jsonScoreElement.id;
 
-    //const tooltipCard = document.createElement('div');
-    //tooltipCard.setAttribute('class', 'tooltip-card');
-
     const plusButton = document.createElement('button');
     plusButton.setAttribute('class', 'plus-button');
     plusButton.id = 'plusButton' + jsonScoreElement.id;
@@ -87,13 +83,16 @@ function createScoreCard(jsonScoreElement, position) {
     let operation = position * 10;
     plusButton.addEventListener("click", () => {
         if (scoreValue < operation) {
-
             scoreValue++;
             const increase = document.getElementById("score" + jsonScoreElement.id);
             increase.textContent = scoreValue;
             jsonScoreElement.score = scoreValue;
         }
     });
+
+    const tooltipText = document.createElement('span');
+    tooltipText.setAttribute('class', 'tooltip-text');
+    tooltipText.textContent = 'The max score is ' + operation;
 
     const score = document.createElement('p');
     score.setAttribute('class', 'score');
@@ -114,7 +113,7 @@ function createScoreCard(jsonScoreElement, position) {
     });
 
     cardContainer.appendChild(card);
-    //card.appendChild(tooltipCard);
+    card.appendChild(tooltipText);
     card.appendChild(plusButton);
     card.appendChild(score);
     card.appendChild(minusButton);
@@ -131,7 +130,6 @@ function showCard() {
                 createScoreCard(element, contador);
                 contador++;
             });
-
         });
 }
 showCard();

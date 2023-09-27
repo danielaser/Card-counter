@@ -30,6 +30,7 @@ body {
 }
 
 /* Card style */
+
 .card {
     display: flex;
     flex-direction: column;
@@ -41,25 +42,6 @@ body {
     margin: 2em;
 
 }
-
-/*.tooltip-card {
-    display: flex;
-    flex-direction: column;
-    width: 100px;
-    height: 200px;
-}*/
-
-.tooltip-card:hover:before {
-    content: 'hello';
-    position: absolute;
-    padding: 5px 10px;
-    margin: -5em 0 0 25px;
-    background: radial-gradient(circle, rgba(59, 240, 101, 1) 0%, rgba(11, 106, 219, 1) 100%);
-    color: black;
-    border-radius: 5px;
-    border: 0.5px solid rgb(89, 84, 242);
-}
-
 
 .button-container {
     width: 100%;
@@ -75,6 +57,37 @@ body {
     text-align: center;
     color: #dedee4;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/* Tooltip style */
+
+.tooltip-text {
+    visibility: hidden;
+    width: 100px;
+    height: 60px;
+    background: linear-gradient(90deg, rgba(26, 40, 46, 1) 0%, rgba(55, 192, 231, 1) 81%, rgba(150, 188, 241, 1) 100%);
+    border-radius: 15px;
+    position: absolute;
+    margin-top: -5em;
+    padding: 0.5em;
+    font-size: 17px;
+    text-align: center;
+    z-index: 1;
+}
+
+.tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: rgb(29, 106, 127)transparent transparent transparent;
+}
+
+.tooltip-card:hover .tooltip-text {
+    visibility: visible;
 }
 
 /* Buttons style */
@@ -120,7 +133,6 @@ body {
     text-align: center;
     color: black;
     background: linear-gradient(90deg, rgba(52, 47, 61, 1) 9%, rgba(135, 114, 230, 1) 46%, rgba(222, 220, 241, 1) 93%);
-    /* background: #aa46db; */
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     border: transparent;
     height: 50px;
