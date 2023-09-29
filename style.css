@@ -86,10 +86,6 @@ body {
     border-color: rgb(29, 106, 127)transparent transparent transparent;
 }
 
-.tooltip-card:hover .tooltip-text {
-    visibility: visible;
-}
-
 /* Buttons style */
 
 .add-button,
@@ -144,6 +140,7 @@ body {
     cursor: pointer;
     font-size: 30px;
 }
+
 
 .plus-button {
     border-radius: 20px 20px 0px 0px;

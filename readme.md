@@ -30,7 +30,7 @@ Users should be able to:
 ### Links
 
 - Exercise URL: [Exersice](https://github.com/danielaser/card-counter)
-- Live Site URL: [Card counter](https://your-live-site-url.com)
+- Live Site URL: [Card counter](https://card-counter-score.netlify.app/)
 
 ## My process
 

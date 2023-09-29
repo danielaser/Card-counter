@@ -32,7 +32,6 @@ function createHTML() {
 
             dataJson.table.push(newObject);
             createScoreCard(newObject, dataJson.table.length);
-
         }
         if (dataJson.table.length == 5) {
             addButton.setAttribute("disabled", true);
@@ -64,7 +63,6 @@ function createHTML() {
     container.appendChild(buttonContainer);
     buttonContainer.appendChild(addButton);
     buttonContainer.appendChild(deleteButton);
-
 }
 createHTML();
 
@@ -74,6 +72,12 @@ function createScoreCard(jsonScoreElement, position) {
     const card = document.createElement('div');
     card.setAttribute('class', 'card tooltip-card');
     card.id = jsonScoreElement.id;
+    card.addEventListener("mouseenter", () => {
+        tooltipText.style.visibility = 'visible';
+    });
+    card.addEventListener("mouseleave", () => {
+        tooltipText.style.visibility = 'hidden';
+    });
 
     const plusButton = document.createElement('button');
     plusButton.setAttribute('class', 'plus-button');
@@ -87,6 +91,11 @@ function createScoreCard(jsonScoreElement, position) {
             const increase = document.getElementById("score" + jsonScoreElement.id);
             increase.textContent = scoreValue;
             jsonScoreElement.score = scoreValue;
+        }
+        if (scoreValue != operation) {
+            tooltipText.style.visibility = 'hidden';
+        } else {
+            tooltipText.style.visibility = 'visible';
         }
     });
 
@@ -110,6 +119,7 @@ function createScoreCard(jsonScoreElement, position) {
             decrease.textContent = scoreValue;
             jsonScoreElement.score = scoreValue;
         }
+        tooltipText.style.visibility = 'hidden';
     });
 
     cardContainer.appendChild(card);
